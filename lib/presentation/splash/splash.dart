@@ -1,9 +1,8 @@
 import 'dart:async';
 import 'package:complete_advanced_flutter/presentation/resources/assets_manager.dart';
 import 'package:complete_advanced_flutter/presentation/resources/color_manager.dart';
+import 'package:complete_advanced_flutter/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,7 +18,21 @@ class _SplashViewState extends State<SplashView> {
     _timer = Timer(const Duration(seconds: 2), _goNext);
   }
 
-  _goNext() {}
+  _goNext() {
+    Navigator.pushReplacementNamed(context, Routes.onBordingRoute);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _startDelay();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
