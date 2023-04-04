@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:complete_advanced_flutter/domain/model.dart';
 import 'package:complete_advanced_flutter/presentation/base/baseviewmodel.dart';
 import 'package:complete_advanced_flutter/presentation/resources/assets_manager.dart';
-
 import '../resources/strings_manager.dart';
 
 class OnBoardingViewModel extends BaseViewModel with OnBordingViewModelInputs, OnBordingViewModelOutputs {
@@ -22,7 +20,6 @@ class OnBoardingViewModel extends BaseViewModel with OnBordingViewModelInputs, O
   void start() {
     _list = _getSliderData();
     //send this slider data to our view
-
     _postDataToView();
   }
 
@@ -41,7 +38,6 @@ class OnBoardingViewModel extends BaseViewModel with OnBordingViewModelInputs, O
     if (previousIndex == -1) {
       _currentIndex = _list.length - 1; //infinite loop to go to the length of slider list
     }
-
     return _currentIndex;
   }
 
@@ -77,7 +73,6 @@ abstract class OnBordingViewModelInputs {
   void goNext(); //when user clicks on right arrow or swipe right
   void goPrevious(); //when user clicks on left arrow or swipe left
   void onPageChanged(int index);
-
   Sink get inputSliderViewObject; //this is the way to add data to the stream .. stream inputs
 }
 
